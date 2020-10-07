@@ -6,9 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public available: boolean = true;
-  public srcImg: string = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
-  public skills: string[] = ['Amistoso', 'Paciente', 'Protector'];
+  public photoUsed: any;
+  public morePhotosPadre: boolean;
 
-  title = 'projectDirectives';
+  constructor(){
+    this.morePhotosPadre = false;
+  }
+
+  funxxPadre(param: any = "hola mundo"){
+    console.log('evento padre -->',param);
+    this.photoUsed = param;
+  }
 }

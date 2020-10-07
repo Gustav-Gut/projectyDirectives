@@ -9,10 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /*Imports Material*/
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
+import { DogCardComponent } from './components/dog-card/dog-card.component';
+import { TrimPipe } from './pipes/trim.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DogCardComponent,
+    TrimPipe
   ],
   imports: [
     BrowserModule,
