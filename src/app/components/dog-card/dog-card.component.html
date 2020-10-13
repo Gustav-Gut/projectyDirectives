@@ -1,26 +1,30 @@
 <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar [ngClass]="{'example-header-image': available}"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-title>{{nameBreed}}</mat-card-title>
       <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
-    <img *ngIf="srcImg; else defaultShiba" mat-card-image src={{srcImg}} alt="Photo of a Shiba Inu">
+    <img appClick *ngIf="srcImg; else defaultShiba" mat-card-image src={{srcImg}} alt="Photo of a Shiba Inu">
     <ng-template #defaultShiba>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu">
+      <img appClick mat-card-image src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu">
     </ng-template>
     <mat-card-content>
       <p *ngFor="let skill of skills, index as i">
-        {{i+1}}- {{skill | trim: false: true}}
+        {{i+1}}- {{skill | trim: false: true: 'param3'}}
       </p>
       <div [ngSwitch]="categoria">
           <p *ngSwitchCase="'perro'">El Shiba es un perro</p>
           <p *ngSwitchCase="'lagarto'">El Shiba no es un perro</p>
           <p *ngSwitchDefault>El Shiba no es</p>
       </div>
-      <p>Nacimiento: {{birthday | date:"dd/MM/yyyy" | lowercase}}</p>
+      <p>Nacimiento: {{birthday | date:"dd/MMM/yyyy" | lowercase}}</p>
+      <p>Nacimiento: {{4500 | currency: 'CLP'}}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button (click)="photo1()">PHOTO 1</button>
       <button mat-button (click)="photo2()" [disabled]="!morePhotos" >PHOTO 2</button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <input [(ngModel)]="nameBreed">
     </mat-card-actions>
   </mat-card>

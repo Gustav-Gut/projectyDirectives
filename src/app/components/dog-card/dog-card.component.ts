@@ -12,7 +12,8 @@ export class DogCardComponent implements OnInit {
   public skills: string[] = ['Amistoso Agil', 'Paciente', 'Protector'];
   public birthday: Date = new Date(2020, 5, 17);
   public categoria: string = 'gato';
-  public name: string = 'gustavo';
+  public name: string = 'Gustavo';
+  public nameBreed: string = 'Shiba Inu';
 
   @Output() myEvent = new EventEmitter();
   @Input() morePhotos: any;
@@ -30,11 +31,13 @@ export class DogCardComponent implements OnInit {
     this.srcImg = 'https://material.angular.io/assets/img/examples/shiba1.jpg';
     this.myEvent.emit(this.srcImg);
     console.log('evento click -->', eve);
+    this.nameBreed = "Shiba de Photo1"
   }
 
   photo2(){
     this.srcImg = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
     this.myEvent.emit(this.srcImg);
+    this.nameBreed = "Inu"
   }
 
   showName(event: any){
